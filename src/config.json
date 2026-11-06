@@ -32,7 +32,43 @@
   "CLOCK_PORT": "clk",
 
   "//": "Configuration docs: https://librelane.readthedocs.io/en/latest/reference/configuration.html",
-
+  "MACROS": {
+    "gf180mcu_ocd_ip_sram__sram256x8m8wm1": {
+      "instances": {
+        "cpu.data_ram": {
+          "location": [5, 5],
+          "orientation": "S"
+        }
+      },
+      "gds": [
+        "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1.gds"
+      ],
+      "lef": [
+        "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1.lef"
+      ],
+      "vh": [
+        "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__blackbox_pp.v"
+      ],
+      "lib": {
+        "*_tt_025C_3v30": [
+          "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__tt_025C_3v30.lib"
+        ],
+        "*_ff_n40C_3v60": [
+          "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__ff_n40C_3v60.lib"
+        ],
+        "*_ss_125C_3v00": [
+          "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__ss_125C_3v00.lib"
+        ]
+      },
+      "spice": [
+        "dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1.spice"
+      ],
+      "sdf": {}
+    }
+  },
+  "PDN_MACRO_CONNECTIONS": [
+    "cpu.data_ram VPWR VGND VDD! VSS!"
+  ],
   "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
   "//": "!!! DO NOT CHANGE ANYTHING BELOW THIS POINT !!!",
   "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
