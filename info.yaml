@@ -8,7 +8,7 @@ project:
   top_module: "tt_um_godofstrategy_tiny8"
   source_files:
     - "project.v"
-    - "tiny8_top.v"
+    - "tiny8_top.v"\n    - "tiny8_spi_programmer.v"
     - "gf180mcu_ocd_ip_sram__sram256x8m8wm1__blackbox.v"
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -34,14 +34,14 @@ pinout:
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "SPI_SCLK"
+  uio[1]: "SPI_MOSI"
+  uio[2]: "SPI_CS_N"
+  uio[3]: "PROG_MODE"
+  uio[4]: "READY"
+  uio[5]: "PROG_FULL"
+  uio[6]: "PC6_PROG"
+  uio[7]: "PC7_PROG"
 
 # Do not change!
 yaml_version: 6
