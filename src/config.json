@@ -66,8 +66,14 @@
       "sdf": {}
     }
   },
-  "PDN_MACRO_CONNECTIONS": [
-  "cpu.data_ram VDD VSS VDD! VSS!"
+"PDN_CFG": "dir::pdn_cfg.tcl",
+"PDN_VWIDTH": 6.0,
+"PDN_VPITCH": 28.92,
+"PDN_VOFFSET": 4.0,
+"PDN_VSPACING": 2.0,
+
+"PDN_MACRO_CONNECTIONS": [
+    "cpu.data_ram VDD VSS VDD! VSS!"
 ],
   "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
   "//": "!!! DO NOT CHANGE ANYTHING BELOW THIS POINT !!!",
