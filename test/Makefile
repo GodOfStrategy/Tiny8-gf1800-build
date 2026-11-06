@@ -9,10 +9,9 @@ SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = project.v tiny8_top.v
 
 ifneq ($(GATES),yes)
-
-# RTL simulation:
-SIM_BUILD				= sim_build/rtl
+SIM_BUILD = sim_build/rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+VERILOG_SOURCES += $(PWD)/gf180_sram_sim.v
 
 else
 
