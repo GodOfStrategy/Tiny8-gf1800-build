@@ -12,6 +12,7 @@ ifneq ($(GATES),yes)
 SIM_BUILD = sim_build/rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
 VERILOG_SOURCES += $(PWD)/gf180_sram_sim.v
+COMPILE_ARGS += -DSIMULATION
 
 else
 
