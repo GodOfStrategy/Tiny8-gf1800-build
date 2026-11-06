@@ -10,7 +10,7 @@
 // uio[1] = MOSI
 // uio[2] = CS_N
 // uio[3] = PROG_MODE
-// READY is asserted only when the receiver can accept the next byte.
+// READY is asserted after each byte write has completed.
 // FULL is asserted after 128 program bytes have been written.
 
 module tiny8_spi_programmer (
@@ -43,7 +43,7 @@ module tiny8_spi_programmer (
     // Keep the CPU in reset for the whole programming session and
     // until any final SRAM write pulse has completed.
     assign prog_busy = mode_sync | prog_we;
-    assign ready = mode_sync & ~prog_we & ~full;
+    assign ready = mode_sync & ~prog_we;
 
     always @(posedge clk) begin
         if (rst) begin
