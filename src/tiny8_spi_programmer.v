@@ -43,7 +43,7 @@ module tiny8_spi_programmer (
     // Keep the CPU in reset for the whole programming session and
     // until any final SRAM write pulse has completed.
     assign prog_busy = mode_sync | prog_we;
-    assign ready = mode_sync & ~prog_we;
+    assign ready = mode_sync & (bit_count == 4'd0) & ~prog_we;
 
     always @(posedge clk) begin
         if (rst) begin
