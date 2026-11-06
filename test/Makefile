@@ -6,7 +6,7 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v tiny8_top.v
+PROJECT_SOURCES = project.v tiny8_top.v gf180mcu_ocd_ip_sram__sram256x8m8wm1__blackbox.v
 
 ifneq ($(GATES),yes)
 SIM_BUILD = sim_build/rtl
