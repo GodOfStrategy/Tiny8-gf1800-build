@@ -67,8 +67,8 @@
     }
   },
   "PDN_MACRO_CONNECTIONS": [
-    "cpu.data_ram VPWR VGND VDD! VSS!"
-  ],
+  "cpu.data_ram VDD VSS VDD! VSS!"
+],
   "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
   "//": "!!! DO NOT CHANGE ANYTHING BELOW THIS POINT !!!",
   "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
