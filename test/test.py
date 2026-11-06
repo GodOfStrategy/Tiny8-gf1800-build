@@ -1,40 +1,27 @@
-# SPDX-FileCopyrightText: © 2024 Tiny Tapeout
-# SPDX-License-Identifier: Apache-2.0
 
 import cocotb
-from cocotb.clock import Clock
-from cocotb.triggers import ClockCycles
+from cocotb.triggers import RisingEdge, Timer
 
 
 @cocotb.test()
-async def test_project(dut):
-    dut._log.info("Start")
+async def test_tiny8_program(dut):
 
-    # Set the clock period to 10 us (100 KHz)
-    clock = Clock(dut.clk, 10, unit="us")
-    cocotb.start_soon(clock.start())
+    dut._log.info("Waiting for Tiny8 program execution")
 
-    # Reset
-    dut._log.info("Reset")
-    dut.ena.value = 1
-    dut.ui_in.value = 0
-    dut.uio_in.value = 0
-    dut.rst_n.value = 0
-    await ClockCycles(dut.clk, 10)
-    dut.rst_n.value = 1
+    # The Verilog testbench loads and executes the program itself.
+    # Wait until the CPU reports that it has halted.
+    for _ in range(400):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ps")
 
-    dut._log.info("Test project behavior")
+        if int(dut.debug_halted.value) == 1:
+            break
+    else:
+        assert False, "Tiny8 timed out: CPU did not halt"
 
-    # Set the input values you want to test
-    dut.ui_in.value = 20
-    dut.uio_in.value = 30
+    # Verify the program's results.
+    assert int(dut.port_out.value) == 0x08, "Incorrect CPU output"
+    assert int(dut.debug_pc.value) == 0x05, "Incorrect program counter"
+    assert int(dut.debug_ir.value) == 0x0800, "Incorrect instruction register"
 
-    # Wait for one clock cycle to see the output values
-    await ClockCycles(dut.clk, 1)
-
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == 50
-
-    # Keep testing the module by changing the input values, waiting for
-    # one or more clock cycles, and asserting the expected output values.
+    dut._log.info("PASS: Tiny8 executed the test program successfully")
