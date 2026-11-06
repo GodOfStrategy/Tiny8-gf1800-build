@@ -33,7 +33,7 @@ else
 # RTL simulation
 SIM_BUILD = sim_build/rtl
 
-PROJECT_SOURCES = project.v tiny8_top.v gf180mcu_ocd_ip_sram__sram256x8m8wm1__blackbox.v
+PROJECT_SOURCES = project.v tiny8_top.v tiny8_spi_programmer.v gf180mcu_ocd_ip_sram__sram256x8m8wm1__blackbox.v
 
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
 VERILOG_SOURCES += $(PWD)/gf180_sram_sim.v
