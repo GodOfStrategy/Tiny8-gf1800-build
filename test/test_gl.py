@@ -18,7 +18,7 @@ async def test_tiny8_gate_level(dut):
 
     await Timer(300, unit="ns")
 
-    assert int(dut.uio_oe.value) == 0xFF, \
+    assert int(dut.uio_oe.value) == 0xF7, \
         "Bidirectional output-enable configuration is incorrect"
 
     dut.ena.value = 1
