@@ -42,7 +42,7 @@ module tb;
 
     initial begin
         $dumpfile("tiny8_shared_sram.vcd");
-        $dumpvars(0, tb_tiny8_shared_sram);
+        $dumpvars(0, tb);
 
         // Hold reset while loading the upper half of the SRAM.
         repeat (2) @(negedge clk);
