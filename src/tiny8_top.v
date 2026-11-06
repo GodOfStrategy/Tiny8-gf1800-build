@@ -1,5 +1,4 @@
 
-`timescale 1ns/1ps
 
 module tiny8_top(
     input clk,
