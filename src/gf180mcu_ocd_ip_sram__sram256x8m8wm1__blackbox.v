@@ -1,3 +1,5 @@
+`ifndef SIMULATION
+
 (* blackbox *)
 module gf180mcu_ocd_ip_sram__sram256x8m8wm1 (
     input         CLK,
@@ -9,3 +11,5 @@ module gf180mcu_ocd_ip_sram__sram256x8m8wm1 (
     output [7:0]  Q
 );
 endmodule
+
+`endif
