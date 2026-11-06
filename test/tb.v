@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module tb_tiny8_shared_sram;
+module tb;
     reg clk = 0;
     reg rst = 1;
     reg [7:0] port_in = 0;
