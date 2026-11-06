@@ -35,12 +35,14 @@ module tb_spi;
                 #1000;
                 uio_in[0] = 1'b1;
                 #1000;
+                if (j == 7) begin
+                    // Confirm the receiver has started this byte.
+                    wait (uio_out[4] == 1'b0);
+                end
                 uio_in[0] = 1'b0;
             end
 
-            // READY goes low while a byte is being received and returns
-            // high only after the SRAM write has completed.
-            wait (uio_out[4] == 1'b0);
+            // READY returns high only after the byte's SRAM write.
             wait (uio_out[4] == 1'b1);
         end
     endtask
