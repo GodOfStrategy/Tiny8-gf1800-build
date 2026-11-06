@@ -94,7 +94,7 @@ module tb_spi;
         end
 
         $fatal(1, "Timeout: Tiny8 did not halt. PC=%h IR=%h state=%h",
-               dut.debug_pc, dut.debug_ir, dut.debug_state);
+               dut.cpu.debug_pc, dut.cpu.debug_ir, dut.cpu.debug_state);
     end
 endmodule
 
